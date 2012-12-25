@@ -99,6 +99,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gfma='git pull --autostash'
   alias gfr='git pull --rebase'
   alias gfra='git pull --rebase --autostash'
+  alias gfw='git whatchanged HEAD..origin/$(git-branch-current)'
 
   # Flow (F)
   alias gFi='git flow init'
@@ -208,6 +209,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gpa='git push --all'
   alias gpA='git push --all && git push --tags'
   alias gpt='git push --tags'
+alias gpb='git push origin "$(git-branch-current 2> /dev/null)"'
   alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
   alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
 
@@ -252,7 +254,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gSl='git submodule status'
   alias gSm='git-submodule-move'
   alias gSs='git submodule sync'
-  alias gSu='git submodule update --remote --recursive'
+  alias gSu='git submodule foreach git pull origin master'
   alias gSx='git-submodule-remove'
 
   # Tag (t)
@@ -265,6 +267,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip; then
   alias gws='git status --ignore-submodules=$_git_status_ignore_submodules --short'
   alias gwS='git status --ignore-submodules=$_git_status_ignore_submodules'
   alias gwd='git diff --no-ext-diff'
+  alias gwdt='git difftool'
   alias gwD='git diff --no-ext-diff --word-diff'
   alias gwr='git reset --soft'
   alias gwR='git reset --hard'

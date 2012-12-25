@@ -16,7 +16,7 @@ function set-window-title {
   local title_format{,ted}
   zstyle -s ':prezto:module:terminal:window-title' format 'title_format' || title_format="%s"
   zformat -f title_formatted "$title_format" "s:$argv"
-  printf '\e]2;%s\a' "${(V%)title_formatted}"
+  printf '\e]2; '"${HOST//.*/}"':%s\a' "${(V%)title_formatted}"
 }
 
 # Sets the terminal tab title.
