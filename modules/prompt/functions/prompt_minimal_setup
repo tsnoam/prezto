@@ -43,7 +43,7 @@ function prompt_minimal_setup {
   zstyle ':vcs_info:git*+set-message:*' hooks git_status
 
   # Define prompts.
-  PROMPT='%3d${vcs_info_msg_0_} » '
+  PROMPT='$? %3d${vcs_info_msg_0_} » '
   RPROMPT=''
 }
 
