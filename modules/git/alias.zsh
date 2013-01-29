@@ -98,6 +98,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gfcr='git clone --recurse-submodules'
   alias gfm='git pull'
   alias gfr='git pull --rebase'
+alias gfw='git whatchanged HEAD..origin/$(git-branch-current)'
 
   # Flow (F)
   alias gFi='git flow init'
