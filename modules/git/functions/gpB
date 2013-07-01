@@ -1,0 +1,27 @@
+#
+# Push the specified revision to the upstream repo/branch
+#
+# Authors:
+#   Noam Meltzer <tsnoam@gmail.com>
+#
+
+if ! git rev-parse 2> /dev/null; then
+  print "$0: not a repository: $PWD" >&2
+  return 1
+fi
+
+if ! git show --quiet "${1}" > /dev/null 2>&1; then
+  print "$0: not a revision: $PWD" >&2
+  return 1
+fi
+
+local ref="$(git branch -vv | awk '$1 == "*" {print substr($4,2,length($4)-2)}' 2> /dev/null)"
+
+if [[ -n "$ref" ]]; then
+  local remote_repo="${ref/\/*/}"
+  local remote_branch="${ref/*\//}"
+  git push "${remote_repo}" "${1}:${remote_branch}"
+  return 0
+else
+  return 1
+fi
