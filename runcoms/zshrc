@@ -13,3 +13,6 @@ fi
 # Customize to your needs...
 autoload -U bashcompinit
 bashcompinit
+
+export GOPATH=~/gocode
+path=($GOPATH/bin $path)
