@@ -108,7 +108,7 @@ zstyle -a ':prezto:module:completion:*:hosts' etc-host-ignores '_etc_host_ignore
 
 zstyle -e ':completion:*:hosts' hosts 'reply=(
   ${=${=${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) 2> /dev/null)"}%%[#| ]*}//\]:[0-9]*/ }//,/ }//\[/ }
-  ${=${(f)"$(cat /etc/hosts(|)(N) <<(: ypcat hosts 2>/dev/null))"}%%\#*}
+  ${=${(f)"$(cat /etc/hosts(|)(N) <<(: ypcat hosts 2> /dev/null))"}%%(\#${_etc_host_ignores:+|${(j:|:)~_etc_host_ignores}})*}
   ${=${${${${(@M)${(f)"$(cat ~/.ssh/config 2> /dev/null)"}:#Host *}#Host }:#*\**}:#*\?*}}
 )'
 

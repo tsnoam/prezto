@@ -97,7 +97,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gfcr='git clone --recurse-submodules'
   alias gfm='git pull'
   alias gfr='git pull --rebase'
-alias gfw='git whatchanged HEAD..$(git-remote-repo)/$(git-branch-current)'
+  alias gfw='git whatchanged HEAD..$(git-remote-repo)/$(git-branch-current)'
 
   # Flow (F)
   alias gFi='git flow init'
@@ -251,7 +251,7 @@ alias gpp='git pull $(git-remote-repo) "$(git-branch-current 2> /dev/null)" && g
   alias gSl='git submodule status'
   alias gSm='git-submodule-move'
   alias gSs='git submodule sync'
-alias gSu='git submodule foreach git pull $(git-remote-repo) master'
+  alias gSu='git submodule foreach git pull $(git-remote-repo) master'
   alias gSx='git-submodule-remove'
 
   # Tag (t)
@@ -262,7 +262,7 @@ alias gSu='git submodule foreach git pull $(git-remote-repo) master'
   alias gws='git status --ignore-submodules=${_git_status_ignore_submodules} --short'
   alias gwS='git status --ignore-submodules=${_git_status_ignore_submodules}'
   alias gwd='git diff --no-ext-diff'
-alias gwdt='git difftool'
+  alias gwdt='git difftool'
   alias gwD='git diff --no-ext-diff --word-diff'
   alias gwr='git reset --soft'
   alias gwR='git reset --hard'
