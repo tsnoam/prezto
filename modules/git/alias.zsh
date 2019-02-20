@@ -98,7 +98,7 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gfcr='git clone --recurse-submodules'
   alias gfm='git pull'
   alias gfr='git pull --rebase'
-  alias gfw='git whatchanged HEAD..$(git-remote-repo)/$(git-branch-current)'
+alias gfw='git whatchanged HEAD..origin/$(git-branch-current)'
 
   # Flow (F)
   alias gFi='git flow init'
@@ -208,9 +208,9 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gpa='git push --all'
   alias gpA='git push --all && git push --tags'
   alias gpt='git push --tags'
-alias gpb='git push $(git-remote-repo) "$(git-branch-current 2> /dev/null)"'
-alias gpc='git push --set-upstream $(git-remote-repo) "$(git-branch-current 2> /dev/null)"'
-alias gpp='git pull $(git-remote-repo) "$(git-branch-current 2> /dev/null)" && git push $(git-remote-repo) "$(git-branch-current 2> /dev/null)"'
+alias gpb='git push origin "$(git-branch-current 2> /dev/null)"'
+  alias gpc='git push --set-upstream origin "$(git-branch-current 2> /dev/null)"'
+  alias gpp='git pull origin "$(git-branch-current 2> /dev/null)" && git push origin "$(git-branch-current 2> /dev/null)"'
 
   # Rebase (r)
   alias gr='git rebase'
@@ -253,7 +253,7 @@ alias gpp='git pull $(git-remote-repo) "$(git-branch-current 2> /dev/null)" && g
   alias gSl='git submodule status'
   alias gSm='git-submodule-move'
   alias gSs='git submodule sync'
-  alias gSu='git submodule foreach git pull $(git-remote-repo) master'
+  alias gSu='git submodule foreach git pull origin master'
   alias gSx='git-submodule-remove'
 
   # Tag (t)
