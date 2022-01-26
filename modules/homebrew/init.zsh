@@ -20,6 +20,7 @@ fi
 # Load standard Homebrew shellenv into the shell session.
 # Load 'HOMEBREW_' prefixed variables only. Avoid loading 'PATH' related
 # variables as they are already handled in standard zsh configuration.
+eval "$(/opt/homebrew/bin/brew shellenv)"
 if (( $+commands[brew] )); then
   eval "${(@M)${(f)"$(brew shellenv 2> /dev/null)"}:#export HOMEBREW*}"
 fi
