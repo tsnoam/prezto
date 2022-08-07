@@ -19,6 +19,11 @@ path=($GOPATH/bin $path)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+zmodload zsh/system
+if zsystem flock -t 0.1 ~/.zshrc 2> /dev/null && ! diskutil list /Volumes/ram &> /dev/null; then
+    diskutil erasevolume HFS+ 'ram' $(hdiutil attach -nobrowse -nomount ram://2097152)
+fi
+
 # --- SHOW AWS PROFILE MENU AND ASSUME --- #
 alias assume="source ~/.local/bin/assume"
 alias tas="source ~/.local/bin/assume"
