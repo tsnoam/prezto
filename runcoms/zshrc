@@ -17,6 +17,8 @@ bashcompinit
 export GOPATH=~/gocode
 path=($GOPATH/bin $path)
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # --- SHOW AWS PROFILE MENU AND ASSUME --- #
 alias assume="source ~/.local/bin/assume"
 alias tas="source ~/.local/bin/assume"
