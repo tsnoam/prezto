@@ -16,3 +16,13 @@ bashcompinit
 
 export GOPATH=~/gocode
 path=($GOPATH/bin $path)
+
+# --- SHOW AWS PROFILE MENU AND ASSUME --- #
+alias assume="source ~/.local/bin/assume"
+alias tas="source ~/.local/bin/assume"
+alias cas='das -c'
+
+function az {
+ az=$(cat ~/.aws/config | grep "\[" | cut -d '[' -f2 | cut -d ']' -f1 | sed 's/profile //g' | smenu -n30 -W $':\t\n' -N -q -c -b -g -s /VmH)
+ eval "assume ${az}"
+}
