@@ -5,6 +5,11 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+# make sure that brew's installation of git won't f**k zsh completions:
+if [[ -d "$(dirname $(readlink -f /opt/homebrew/bin/git))/../share/zsh" ]]; then
+  mv "$(dirname $(readlink -f /opt/homebrew/bin/git))/../share/zsh"{,.disabled}
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
