@@ -10,6 +10,6 @@ if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; t
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
+path=(/Users/nm/.krew/bin $path)
 fpath=(/Users/nm/.granted/zsh_autocomplete/assume/ $fpath)
-
 fpath=(/Users/nm/.granted/zsh_autocomplete/granted/ $fpath)
