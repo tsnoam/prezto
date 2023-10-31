@@ -14,7 +14,7 @@ fi
 # Sets the terminal window title.
 function set-window-title {
   local title_format{,ted}
-  zstyle -s ':prezto:module:terminal:window-title' format 'title_format' || title_format="%s"
+  zstyle -s ':prezto:module:terminal:window-title' format 'title_format' || title_format="${zzz_title_prefix}%s"
   zformat -f title_formatted "$title_format" "s:$argv"
   printf '\e]2; '"${HOST//.*/}"':%s\a' "${(V%)title_formatted}"
 }
@@ -22,7 +22,7 @@ function set-window-title {
 # Sets the terminal tab title.
 function set-tab-title {
   local title_format{,ted}
-  zstyle -s ':prezto:module:terminal:tab-title' format 'title_format' || title_format="%s"
+  zstyle -s ':prezto:module:terminal:tab-title' format 'title_format' || title_format="${zzz_title_prefix}%s"
   zformat -f title_formatted "$title_format" "s:$argv"
   printf '\e]1;%s\a' "${(V%)title_formatted}"
 }
@@ -30,7 +30,7 @@ function set-tab-title {
 # Sets the terminal multiplexer tab title.
 function set-multiplexer-title {
   local title_format{,ted}
-  zstyle -s ':prezto:module:terminal:multiplexer-title' format 'title_format' || title_format="%s"
+  zstyle -s ':prezto:module:terminal:multiplexer-title' format 'title_format' || title_format="${zzz_title_prefix}%s"
   zformat -f title_formatted "$title_format" "s:$argv"
   printf '\ek%s\e\\' "${(V%)title_formatted}"
 }
