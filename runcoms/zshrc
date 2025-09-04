@@ -26,6 +26,7 @@ path=($GOPATH/bin $path)
 
 zmodload zsh/system
 if zsystem flock -t 0.1 ~/.zshrc 2> /dev/null && ! diskutil list /Volumes/ram &> /dev/null; then
+    ssh-add --apple-use-keychain ~/.ssh/id_rsa
     diskutil erasevolume HFS+ 'ram' $(hdiutil attach -nobrowse -nomount ram://2097152)
 fi
 
